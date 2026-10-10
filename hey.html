@@ -1,0 +1,581 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="MindCare promotes depression prevention, emotional wellness, self-care, and access to mental health support.">
+  <title>MindCare | Your Mental Wellness Matters</title>
+
+  <style>
+    :root {
+      --primary: #286c63;
+      --dark: #183e3a;
+      --light: #eaf5f1;
+      --accent: #f1c879;
+      --text: #283936;
+      --white: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      color: var(--text);
+      background: #f9fbfa;
+      line-height: 1.7;
+    }
+
+    header {
+      background: var(--white);
+      padding: 18px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      box-shadow: 0 2px 12px #0000000d;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo {
+      font-size: 1.7rem;
+      font-weight: bold;
+      color: var(--primary);
+    }
+
+    nav {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: var(--dark);
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+
+    nav a:hover {
+      color: var(--primary);
+      text-decoration: underline;
+    }
+
+    .hero {
+      min-height: 510px;
+      padding: 90px 8%;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(120deg, #eaf5f1, #fdf8ec);
+    }
+
+    .hero-content {
+      max-width: 760px;
+    }
+
+    .eyebrow {
+      color: var(--primary);
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 0.85rem;
+    }
+
+    h1 {
+      color: var(--dark);
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      line-height: 1.15;
+      margin: 18px 0;
+    }
+
+    .hero p {
+      max-width: 620px;
+      font-size: 1.1rem;
+      margin-bottom: 28px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      padding: 13px 23px;
+      border-radius: 8px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: bold;
+    }
+
+    .btn:hover {
+      background: var(--dark);
+    }
+
+    section {
+      padding: 70px 8%;
+      scroll-margin-top: 90px;
+    }
+
+    .section-title {
+      text-align: center;
+      color: var(--dark);
+      font-size: 2rem;
+      margin-bottom: 12px;
+    }
+
+    .section-intro {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 38px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 22px;
+    }
+
+    .card {
+      background: white;
+      padding: 26px;
+      border-radius: 14px;
+      box-shadow: 0 5px 20px #173d3510;
+      border: 1px solid #e7efeb;
+    }
+
+    .card .icon {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .card h3 {
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+
+    .about {
+      background: var(--light);
+    }
+
+    .about-content {
+      max-width: 850px;
+      margin: auto;
+    }
+
+    .about-content h3 {
+      margin: 20px 0 8px;
+      color: var(--dark);
+    }
+
+    .about-content ul {
+      padding-left: 24px;
+    }
+
+    .checkin {
+      max-width: 700px;
+      margin: auto;
+      background: white;
+      border-radius: 16px;
+      padding: 30px;
+      box-shadow: 0 5px 25px #0000000d;
+    }
+
+    .checkin label {
+      display: block;
+      margin: 18px 0 7px;
+      font-weight: bold;
+    }
+
+    .checkin select,
+    .checkin textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #bdcec8;
+      border-radius: 8px;
+      font: inherit;
+      background: white;
+    }
+
+    .checkin textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    .checkin .btn {
+      margin-top: 20px;
+    }
+
+    #checkin-result {
+      display: none;
+      margin-top: 22px;
+      padding: 18px;
+      background: var(--light);
+      border-radius: 8px;
+    }
+
+    .help {
+      background: #fdf8ec;
+    }
+
+    .help-content {
+      max-width: 800px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .help-content p {
+      margin: 15px 0;
+    }
+
+    footer {
+      background: var(--dark);
+      color: white;
+      text-align: center;
+      padding: 28px 8%;
+    }
+
+    footer a {
+      color: #f1d99e;
+    }
+
+    .disclaimer {
+      font-size: 0.88rem;
+      margin-top: 15px;
+      color: #e0ebe7;
+    }
+
+    @media (max-width: 650px) {
+      header {
+        justify-content: center;
+      }
+
+      nav {
+        justify-content: center;
+        gap: 12px;
+      }
+
+      .hero {
+        padding: 65px 7%;
+      }
+
+      section {
+        padding: 52px 7%;
+      }
+
+      .checkin {
+        padding: 22px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">MindCare 💚</div>
+
+    <nav aria-label="Main navigation">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#signs">Warning Signs</a>
+      <a href="#prevention">Prevention</a>
+      <a href="#checkin">Self-Care</a>
+      <a href="#help">Get Help</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <span class="eyebrow">Your mind matters</span>
+
+        <h1>A healthier mind begins with caring for yourself.</h1>
+
+        <p>
+          Welcome to MindCare, a mental wellness platform dedicated to
+          depression awareness, prevention, early support, and building
+          healthier daily habits. You deserve care, understanding, and hope.
+        </p>
+
+        <a href="#prevention" class="btn">Explore Wellness Tips</a>
+      </div>
+    </section>
+
+    <section id="about" class="about">
+      <h2 class="section-title">About MindCare</h2>
+
+      <p class="section-intro">
+        We believe that mental health deserves the same attention as
+        physical health. Learning about depression and finding support
+        early can help people take positive steps toward well-being.
+      </p>
+
+      <div class="about-content">
+        <h3>Our mission</h3>
+        <p>
+          To promote depression awareness, encourage supportive
+          relationships, reduce stigma, and help people access appropriate
+          mental health care.
+        </p>
+
+        <h3>Our vision</h3>
+        <p>
+          A community where everyone feels comfortable talking about
+          mental health and seeking help without fear of judgment.
+        </p>
+
+        <h3>Our objectives</h3>
+        <ul>
+          <li>Educate people about depression and common warning signs.</li>
+          <li>Encourage healthy habits and emotional self-awareness.</li>
+          <li>Promote supportive families, friendships, and communities.</li>
+          <li>Encourage timely access to qualified mental health professionals.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="signs">
+      <h2 class="section-title">Understanding Depression</h2>
+
+      <p class="section-intro">
+        Depression is more than occasional sadness. It can affect a
+        person's emotions, thoughts, physical health, and everyday life.
+        Recognizing possible warning signs can be an important first step
+        toward support.
+      </p>
+
+      <div class="cards">
+        <article class="card">
+          <div class="icon">🌧️</div>
+          <h3>Persistent sadness</h3>
+          <p>
+            Feeling sad, empty, hopeless, or irritable much of the time.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="icon">🌙</div>
+          <h3>Sleep changes</h3>
+          <p>
+            Sleeping much more or less than usual, or struggling to rest.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="icon">🍃</div>
+          <h3>Loss of interest</h3>
+          <p>
+            Losing interest or pleasure in activities that once felt enjoyable.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="icon">🫂</div>
+          <h3>Social withdrawal</h3>
+          <p>
+            Pulling away from friends, family, or usual activities.
+          </p>
+        </article>
+      </div>
+
+      <p class="section-intro" style="margin-top: 25px;">
+        These signs can have different causes and do not by themselves
+        establish a diagnosis. If symptoms persist, worsen, or interfere
+        with daily life, consider speaking with a qualified health professional.
+      </p>
+    </section>
+
+    <section id="prevention" class="about">
+      <h2 class="section-title">Everyday Mental Wellness</h2>
+
+      <p class="section-intro">
+        There is no guaranteed way to prevent depression, but supportive
+        habits and early care can help protect mental well-being.
+      </p>
+
+      <div class="cards">
+        <article class="card">
+          <div class="icon">🏃</div>
+          <h3>Stay active</h3>
+          <p>
+            Try a walk, dancing, stretching, or another activity that feels
+            comfortable and enjoyable.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="icon">😴</div>
+          <h3>Prioritize sleep</h3>
+          <p>
+            Build a regular sleep routine and create a calm environment
+            for rest.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="icon">🤝</div>
+          <h3>Connect with others</h3>
+          <p>
+            Talk with someone you trust. Meaningful connection can help
+            you feel supported.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="icon">🌿</div>
+          <h3>Manage stress</h3>
+          <p>
+            Take breaks, practice breathing exercises, and make time for
+            activities that help you relax.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="icon">🥗</div>
+          <h3>Care for your body</h3>
+          <p>
+            Eat regularly, stay hydrated, and seek medical advice when
+            physical or emotional difficulties persist.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="icon">💬</div>
+          <h3>Ask for support</h3>
+          <p>
+            Speaking with a counselor or other qualified professional
+            can help you explore what you are experiencing.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="checkin">
+      <h2 class="section-title">Your Daily Check-In</h2>
+
+      <p class="section-intro">
+        Take a moment to reflect on your feelings. This private,
+        on-page activity is for self-reflection, not diagnosis.
+      </p>
+
+      <div class="checkin">
+        <form id="wellness-form">
+          <label for="mood">How have you been feeling today?</label>
+
+          <select id="mood" required>
+            <option value="">Choose an option</option>
+            <option value="good">Mostly good</option>
+            <option value="mixed">A mixture of feelings</option>
+            <option value="low">Sad or low</option>
+            <option value="overwhelmed">Stressed or overwhelmed</option>
+          </select>
+
+          <label for="support">What might help you today?</label>
+
+          <select id="support" required>
+            <option value="">Choose an option</option>
+            <option value="rest">Rest and relaxation</option>
+            <option value="friend">Talking with someone</option>
+            <option value="movement">Gentle physical activity</option>
+            <option value="professional">Professional support</option>
+          </select>
+
+          <label for="reflection">Anything you would like to reflect on? (Optional)</label>
+
+          <textarea
+            id="reflection"
+            maxlength="500"
+            placeholder="Write a few words about what is on your mind..."
+          ></textarea>
+
+          <button type="submit" class="btn">View My Suggestions</button>
+        </form>
+
+        <div id="checkin-result" role="status" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section id="help" class="help">
+      <div class="help-content">
+        <h2 class="section-title">You Don't Have to Face It Alone</h2>
+
+        <p>
+          If you have been feeling persistently sad, hopeless, or unable
+          to manage everyday activities, consider reaching out to a
+          qualified mental health professional or trusted health provider.
+        </p>
+
+        <p>
+          You can also speak with someone you trust and ask them to help
+          you find appropriate support.
+        </p>
+
+        <p>
+          <strong>Need urgent help?</strong> If you may harm yourself or
+          someone else, or cannot keep yourself safe, contact local
+          emergency services or go to the nearest emergency department.
+          If possible, stay with a trusted person while seeking help.
+        </p>
+
+        <a href="#checkin" class="btn">Take a Moment for Yourself</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="year"></span> MindCare | Mental Wellness for Everyone</p>
+
+    <p class="disclaimer">
+      MindCare provides general educational information, not a diagnosis
+      or a substitute for professional mental health care. Self-care
+      activities cannot guarantee prevention or recovery.
+    </p>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+    const form = document.getElementById("wellness-form");
+    const result = document.getElementById("checkin-result");
+
+    const suggestions = {
+      rest: "Consider taking a quiet break, slowing down, and allowing yourself time to rest.",
+      friend: "Consider reaching out to a trusted friend, family member, or supportive person.",
+      movement: "If it feels manageable, try a short walk, gentle stretching, or another comfortable activity.",
+      professional: "Consider contacting a qualified counselor, psychologist, doctor, or mental health service."
+    };
+
+    form.addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const mood = document.getElementById("mood").value;
+      const support = document.getElementById("support").value;
+
+      let message = "";
+
+      if (mood === "good") {
+        message = "It's good to make space for the things that support your well-being. ";
+      } else if (mood === "mixed") {
+        message = "It's okay to experience different feelings. You don't have to solve everything at once. ";
+      } else if (mood === "low") {
+        message = "I'm sorry today feels difficult. You deserve kindness and support. ";
+      } else if (mood === "overwhelmed") {
+        message = "When things feel overwhelming, try focusing on one manageable step at a time. ";
+      }
+
+      result.textContent = message + suggestions[support];
+      result.style.display = "block";
+      result.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    });
+  </script>
+
+</body>
+</html>
